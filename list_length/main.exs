@@ -5,9 +5,12 @@ defmodule Solution do
     Enum.map(&String.to_integer/1)
   end
 
-  def main(list) do
-    Enum.filter(list, fn x -> rem(x, 2) != 0 end) |>
-    Enum.reduce(0, fn acc, x -> acc + x end)
+  def main([_ | []]) do
+    1
+  end
+
+  def main([_ | tail]) do
+    1 + main(tail)
   end
 end
 
